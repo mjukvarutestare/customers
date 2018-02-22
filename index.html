@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<p class="person-id">ID: </p>
+<p class="person-firstname">Förnamn: </p>
+<p class="person-lastname">Efternamn: </p>
+<p class="person-occupation">Yrke: </p>
+
+<script>
+$(function() {
+	$.ajax({url:"http://localhost/persons/person/read.php"
+	}).then(function(data) {
+		var id = data["records"][0]["id"];
+		var name = data["records"][0]["name"];
+		var lastname = data["records"][0]["lastname"];
+		var occupation = data["records"][0]["occupation"];
+		
+		$('.person-id').append(id);
+		$('.person-firstname').append(name);
+		$('.person-lastname').append(lastname);
+		$('.person-occupation').append(occupation);
+	});
+});
+</script>
+</body>
+</html>
