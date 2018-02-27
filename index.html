@@ -2,27 +2,29 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<p class="person-id">ID: </p>
-<p class="person-firstname">Förnamn: </p>
-<p class="person-lastname">Efternamn: </p>
-<p class="person-occupation">Yrke: </p>
-
+<div id="customer-wrapper">
+<p class="customer-id">ID: </p>
+<p class="customer-firstname">Förnamn: </p>
+<p class="customer-lastname">Efternamn: </p>
+<p class="customer-occupation">Yrke: </p>
+</div>
 <script>
 $(function() {
-	$.ajax({url:"http://localhost/persons/person/read.php"
+	$.ajax({url:"http://localhost:8080/customers/customer/read.php"
 	}).then(function(data) {
 		var id = data["records"][0]["id"];
 		var name = data["records"][0]["name"];
 		var lastname = data["records"][0]["lastname"];
 		var occupation = data["records"][0]["occupation"];
 		
-		$('.person-id').append(id);
-		$('.person-firstname').append(name);
-		$('.person-lastname').append(lastname);
-		$('.person-occupation').append(occupation);
+		$('.customer-id').append(id);
+		$('.customer-firstname').append(name);
+		$('.customer-lastname').append(lastname);
+		$('.customer-occupation').append(occupation);
 	});
 });
 </script>

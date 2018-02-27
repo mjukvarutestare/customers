@@ -1,7 +1,7 @@
 <?php
-class Person{	
+class Customer{	
 	private $conn;
-	private $table_name = "person";
+	private $table_name = "customer";
 	public $id;
 	public $firstname;
 	public $lastname;
